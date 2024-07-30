@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Navbar from './components/navbar'; // Ensure the case matches your file system
 import MyNewsletters from './pages/mynewsletters'; // Ensure the case matches your file system
 import Home from './pages/home';
+import NewsletterForm from './pages/create-newsletter';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
 
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/mynewsletters" element={<MyNewsletters />} />
+        <Route path="mynewsletters/create" element={<NewsletterForm />} />
       </Routes>
     </BrowserRouter>
   );

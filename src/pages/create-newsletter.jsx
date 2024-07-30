@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import './newsletter-form.css';
+import axios from 'axios';
+import '../css/newsletter-form.css';
 
 const NewsletterForm = () => {
     const [formData, setFormData] = useState({
         title: '',
-        body: '',
-        author: '',
-        date: ''
+        content: ''
+        // author: '',
+        // date: ''
     });
 
     const handleChange = (e) => {
@@ -17,8 +18,23 @@ const NewsletterForm = () => {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        try {
+            const response = await axios.post('http://localhost:8080/posts', formData, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            // Log the success response
+            console.log('Success:', response.data);
+
+        } catch (error) {
+            // Handle error
+            console.error('Error:', error);
+        }
+
         // Handle form submission logic here, e.g., send data to server
         console.log('Newsletter data submitted:', formData);
     };
@@ -38,17 +54,17 @@ const NewsletterForm = () => {
                     required
                 />
 
-                <label htmlFor="body">Body:</label>
+                <label htmlFor="content">Content:</label>
                 <textarea
-                    id="body"
-                    name="body"
+                    id="content"
+                    name="content"
                     placeholder="Enter the content of the newsletter here..."
                     rows="6"
-                    value={formData.body}
+                    value={formData.content}
                     onChange={handleChange}
                     required
                 />
-
+                {/* 
                 <label htmlFor="author">Author Name:</label>
                 <input
                     type="text"
@@ -68,9 +84,9 @@ const NewsletterForm = () => {
                     value={formData.date}
                     onChange={handleChange}
                     required
-                />
+                /> */}
 
-                <button type="submit" className="submit-button">Publish Newsletter</button>
+                <button type="submit" className="submit-button">Save Newsletter</button>
             </form>
         </div>
     );

@@ -1,0 +1,27 @@
+/* newsletter-listing.css */
+
+.newsletter-list-container {
+    padding: 20px;
+}
+  
+  .newsletter-item {
+    list-style-type: none;
+    background-color: #ffffff; 
+    border: 2px solid #f3d0d2; 
+    border-radius: 8px;
+    padding: 15px; 
+    margin-bottom: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .newsletter-item:hover {
+    transform: scale(1.02); /* Slightly enlarge the item on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+  }
+  
+  .newsletter-item a {
+    color: #333; /* Dark color for the text */
+    text-decoration: none; /* Remove underline from links */
+    font-size: 1.2em; /* Slightly larger font size */
+  }

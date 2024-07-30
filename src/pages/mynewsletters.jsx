@@ -1,10 +1,19 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import ListingNewsletters from '../listing/listingnewsletters';
 
 const MyNewsletters = () => {
     return (
         <>
             <h2>Here are the newsletters</h2>
-            {/* You can add more content or components to display the list of newsletters here */}
+            <Link to="/mynewsletters/create">
+                <button>
+                    Add a new newsletter
+                </button>
+            </Link>
+            <ListingNewsletters/>
+
+
         </>
     );
 };
